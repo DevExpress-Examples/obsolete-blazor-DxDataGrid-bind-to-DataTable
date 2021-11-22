@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Blazor DataGrid - How to bind a grid to a DataTable object
+# Blazor DataGrid - Bind a grid to a DataTable object
 
 You can bind the **DxDataGrid** component to the IEnumerable collections of objects. That is why you cannot pass a DataTable object directly to the Data Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxDataGrid-1.Data) property. However, when you know the structure of the DataTable object, you can create a class with corresponding properties for each column in the DataTable object. After that you need to generate the IEnumerable collection of this class' objects based on the *Rows* collection of the DataTable object. 
 This approach is demonstrated in the first "Static object" grid.
