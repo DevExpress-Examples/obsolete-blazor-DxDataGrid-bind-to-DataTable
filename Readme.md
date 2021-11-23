@@ -6,7 +6,11 @@
 
 # Blazor DataGrid - Bind a grid to a DataTable object
 
-You can bind the **DxDataGrid** component to the IEnumerable collections of objects. That is why you cannot pass a DataTable object directly to the Data Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxDataGrid-1.Data) property. However, when you know the structure of the DataTable object, you can create a class with corresponding properties for each column in the DataTable object. After that you need to generate the IEnumerable collection of this class' objects based on the *Rows* collection of the DataTable object. 
+You can bind the **DxDataGrid** component to the IEnumerable collections of objects. That is why you cannot pass a DataTable object directly to the Data Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxDataGrid-1.Data) property. 
+
+![DataGrid: Data Binding](images/bind-datagrid-to-datatable.png)
+
+However, when you know the structure of the DataTable object, you can create a class with corresponding properties for each column in the DataTable object. After that you need to generate the IEnumerable collection of this class' objects based on the *Rows* collection of the DataTable object. 
 This approach is demonstrated in the first "Static object" grid.
 
 When the DataTable object is generated dynamically, its structure is unknown. In this case, you can bind the **DxDataGrid** component to the IEnumerable collection of the [ExpandoObject](https://docs.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=netframework-4.8) objects. This collection allows you to dynamically generate properties based on the structure of the used DataTable. The "Dynamic object" grid demonstrates this approach. The [ConvertDataTableToExpandoObjectList](./CS/DataGridBindingToDataTable/Pages/Index.razor#L66) method converts the DataTable object to the IEnumerable collection of the ExpandoObject objects.
