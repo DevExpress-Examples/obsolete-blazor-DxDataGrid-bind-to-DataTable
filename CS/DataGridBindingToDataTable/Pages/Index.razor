@@ -1,4 +1,5 @@
 ﻿@page "/"
+
 @using System.Data
 @using System.Dynamic
 @using System.Collections
@@ -41,9 +42,9 @@ else {
     </DxDataGrid>
 }
 @code {
-    List<MyDataItemClass> DataStaticSource;
-    List<object> DataDynamicSource;
-    public DataTable dataTable;
+    List<MyDataItemClass>? DataStaticSource;
+    List<object>? DataDynamicSource;
+    public DataTable? dataTable;
 
     protected override void OnInitialized() {
         dataTable = GetDataTable();
@@ -87,6 +88,6 @@ else {
     {
         public int Number { get; set; }
         public DateTime Date { get; set; }
-        public string Text { get; set; }
+        public string? Text { get; set; }
     }
 }
