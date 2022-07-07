@@ -6,7 +6,7 @@
 
 # Blazor DataGrid - Bind a grid to a DataTable object
 
-The Data Grid was moved to maintenance support mode. No new features/capabilities will be added to this component. We recommend that you [migrate](https://docs.devexpress.com/Blazor/403162/grid/migrate-from-data-grid-to-grid) to the [Grid](https://docs.devexpress.com/Blazor/403143/grid) component. 
+⛔ DEPRECATED. The Data Grid was moved to maintenance support mode. No new features/capabilities will be added to this component. We recommend that you [migrate](https://docs.devexpress.com/Blazor/403162/grid/migrate-from-data-grid-to-grid) to the [Grid](https://docs.devexpress.com/Blazor/403143/grid) component that support binding to a DataTable object out of the box. 
 
 You can bind the **DxDataGrid** component to the IEnumerable collection of objects. That is why you cannot pass a DataTable object directly to the Data Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxDataGrid-1.Data) property. 
 
