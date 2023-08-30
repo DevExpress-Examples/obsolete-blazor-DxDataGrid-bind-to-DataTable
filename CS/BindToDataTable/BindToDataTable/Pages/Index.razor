@@ -1,55 +1,21 @@
 ﻿@page "/"
 
 @using System.Data
-@using System.Dynamic
-@using System.Collections
 
-@if(DataStaticSource == null) {
-    <p><em>Loading...</em></p>
-} else {
-    <h3>Static Object</h3>
-    <DxGrid Data="@DataStaticSource">
-        <Columns>
-            <DxGridDataColumn FieldName="Text" Caption="Text Value" />
-            <DxGridDataColumn FieldName="Number" Caption="Numeric Value" />
-            <DxGridDataColumn FieldName="Date" DisplayFormat="D" Caption="Date-Time Value" />
-        </Columns>
-    </DxGrid>
-}
-@if(DataDynamicSource == null) {
-    <p><em>Loading...</em></p>
-} else {
-    <h3>Dynamic Object</h3>
-    <DxGrid Data="@DataDynamicSource">
-        <Columns>
-            @foreach(DataColumn col in dataTable.Columns) {
-                switch(col.DataType.FullName) {
-                    case "System.Int32":
-                        <DxGridDataColumn FieldName="@col.ToString()" Caption="Numeric Value" />
-                        break;
-                    case "System.DateTime":
-                        <DxGridDataColumn FieldName="@col.ToString()" DisplayFormat="D" Caption="Date-Time Value" />
-                        break;
-                    case "System.String":
-                        <DxGridDataColumn FieldName="@col.ToString()" Caption="Text Value" />
-                        break;
-                }
-            }
-        </Columns>
-    </DxGrid>
-}
+<DxGrid Data="@dataTable">
+    <Columns>
+        <DxGridDataColumn FieldName="Text" Caption="Text Value" />
+        <DxGridDataColumn FieldName="Number" Caption="Numeric Value" />
+        <DxGridDataColumn FieldName="Date" DisplayFormat="D" Caption="Date-Time Value" />
+    </Columns>
+</DxGrid>
+
 
 @code {
-    List<MyDataItemClass> DataStaticSource;
-    List<object> DataDynamicSource;
     public DataTable dataTable;
 
     protected override void OnInitialized() {
         dataTable = GetDataTable();
-        List<dynamic> expandoList = ConvertDataTableToExpandoObjectList(dataTable);
-        List<MyDataItemClass> staticObjectList = ConvertDataTableToStaticObjectList(dataTable);
-        DataDynamicSource = expandoList;
-        DataStaticSource = staticObjectList;
     }
     DataTable GetDataTable() {
         var dataTable = new DataTable();
@@ -60,29 +26,5 @@
             dataTable.Rows.Add(new object[] { $"Text {i}", i, DateTime.Now.AddDays(-i) });
         }
         return dataTable;
-    }
-    private static List<dynamic> ConvertDataTableToExpandoObjectList(DataTable dataTable) {
-        List<dynamic> expandoList = new List<dynamic>();
-        foreach(DataRow row in dataTable.Rows) {
-            var expandoDict = new ExpandoObject() as IDictionary<String, Object>;
-            foreach(DataColumn col in dataTable.Columns) {
-                expandoDict.Add(col.ToString(), row[col.ColumnName]);
-            }
-            expandoList.Add(expandoDict);
-        }
-        return expandoList;
-    }
-    private static List<MyDataItemClass> ConvertDataTableToStaticObjectList(DataTable dataTable) {
-        List<MyDataItemClass> tempList = new List<MyDataItemClass>();
-        foreach(DataRow row in dataTable.Rows) {
-            var myobject = new MyDataItemClass() { Date = Convert.ToDateTime(row["Date"]), Number = Convert.ToInt32(row["Number"]), Text = row["Text"].ToString() };
-            tempList.Add(myobject);
-        }
-        return tempList;
-    }
-    class MyDataItemClass {
-        public int Number { get; set; }
-        public DateTime Date { get; set; }
-        public string Text { get; set; }
     }
 }
