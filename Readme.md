@@ -1,4 +1,3 @@
-
 # Blazor Grid - Bind to a DataTable object
 
 The **DxGrid** component works with **IEnumerable** collections. That is why you cannot pass a **DataTable** object directly to the Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxGrid.Data) property. 
