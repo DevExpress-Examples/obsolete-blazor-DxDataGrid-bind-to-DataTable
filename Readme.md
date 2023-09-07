@@ -4,7 +4,7 @@
 <!-- default badges end -->
 # Blazor Grid - Bind to a DataTable object
 
-The **DxGrid** component supports binding to **DataTable** objects out of the box. You can generate such an object and pass it directly to the Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxGrid.Data) property.
+You can bind a **DxGrid** component to a **DataTable** object. Generate such an object and pass it directly to the Grid's [Data](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxGrid.Data) property.
 
 ![Grid - Bind to DataTable](bind-grid-to-datatable.png)
 
