@@ -12,7 +12,7 @@ You can bind a **DxGrid** component to a **DataTable** object. Generate such an 
 <!-- default file list -->
 ## Files to look at
 
-* [Index.razor](./CS/BindToDataTable/Pages/Index.razor)
+* [Index.razor](./CS/BindToDataTable/BindToDataTable/Pages/Index.razor)
 <!-- default file list end -->
 
 ## Documentation
